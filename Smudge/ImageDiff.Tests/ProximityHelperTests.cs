@@ -7,13 +7,25 @@ namespace ImageDiff.Tests
     [TestFixture]
     public class ProximityHelperTests
     {
-        [Test]
-        public void Get_point()
+        private IProximityHelper _proximityHelper;
+
+        [SetUp]
+        public void Before_each_tests()
         {
-            var helper = new ProximityHelper();
+            _proximityHelper = new ProximityHelper();
+        }
 
+        [Test]
+        public void GetNearest()
+        {
+            var first = new Bitmap(@"..\..\..\ImageDiff\CleanTarget.PNG");
+            var second = new Bitmap(@"..\..\..\ImageDiff\DirtyTarget.PNG");
+            var reference = new Point(first.Width / 2, first.Height / 2);
 
-            Assert.NotNull(helper);
+            var result = _proximityHelper.GetNearest(reference, first, second);
+
+            Assert.AreEqual(420, result.X);
+            Assert.AreEqual(194, result.Y);
         }
     }
 }
