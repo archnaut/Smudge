@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageDiff", "..\ImageDiff\ImageDiff.csproj", "{D018D30C-05CA-4D62-82C8-6DD631F696DD}"
-EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageDiff", "ImageDiff\ImageDiff.csproj", "{D018D30C-05CA-4D62-82C8-6DD631F696DD}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageDiff.Tests", "..\ImageDiff.Tests\ImageDiff.Tests.csproj", "{A38979D0-DF29-4B7E-9381-7407312E16DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AED7E65F-B6D3-40C8-91A2-025F450A2448}"
