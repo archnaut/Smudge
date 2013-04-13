@@ -14,6 +14,8 @@ namespace ImageDiff
 	        Bitmap diff = ImageTool.GetDifferenceImage(cleanTarget, dirtyTarget, Color.Pink);
 	        diff.MakeTransparent(Color.Pink);
 	        diff.Save("test-diff.png",ImageFormat.Png);
+
+            for(ve
 	    }
 	}
 }
