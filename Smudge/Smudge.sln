@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageDiff", "..\ImageDiff\ImageDiff.csproj", "{D018D30C-05CA-4D62-82C8-6DD631F696DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageDiff", "ImageDiff\ImageDiff.csproj", "{D018D30C-05CA-4D62-82C8-6DD631F696DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
