@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using NUnit.Framework;
 
 namespace ImageDiff.Tests
@@ -10,6 +11,7 @@ namespace ImageDiff.Tests
         public void Get_point()
         {
             var helper = new ProximityHelper();
+
 
             Assert.NotNull(helper);
         }
