@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Linq;
 
 namespace ImageDiff
 {
@@ -10,7 +11,7 @@ namespace ImageDiff
 	    public static void Main()
 	    {
             ITargetGateway targetGateway = new TargetGatewayStub();
-            IProximityHelper proximityHelper = null;
+            IProximityHelper proximityHelper = new ProximityHelper();
             Point targetCenter = new Point(409, 377);
 
             Bitmap previousImage = new Bitmap("CleanTarget.PNG");
@@ -19,19 +20,18 @@ namespace ImageDiff
             var shot = proximityHelper.GetNearest(targetCenter, previousImage, currentImage);
 
             var rings = new List<Circle>{
-                new Circle(targetCenter, 200),
-                new Circle(targetCenter, 400),
-                new Circle(targetCenter, 600),
-                new Circle(targetCenter, 800),
-                new Circle(targetCenter, 1000),
-                new Circle(targetCenter, 1200),
-                new Circle(targetCenter, 1400),
-                new Circle(targetCenter, 1600),
-                new Circle(targetCenter, 1800),
-                new Circle(targetCenter, 1900),
+                new Circle(targetCenter, 36),
+                new Circle(targetCenter, 103),
+                new Circle(targetCenter, 170),
+                new Circle(targetCenter, 234),
+                new Circle(targetCenter, 304),
+                new Circle(targetCenter, 371)
             };
 
-            
+            var ring = rings.First(x => x.Contains(shot));
+
+            Console.WriteLine(ring.Radius);
+            Console.ReadKey();
 	    }
 	}
 }

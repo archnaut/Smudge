@@ -10,7 +10,7 @@ namespace ImageDiff
 {
     interface ITargetGateway
     {
-        public Bitmap GetImage();
+        Bitmap GetImage();
     }
 
     internal class TargetGatewayStub : ITargetGateway
@@ -28,7 +28,7 @@ namespace ImageDiff
         {
             var angle = _random.Next(360);
 
-            return RotateImage(_image, angle);
+            return _image;
         }
 
         private static Bitmap RotateImage(Bitmap image, float angle)
