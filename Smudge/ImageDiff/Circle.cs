@@ -24,7 +24,7 @@ namespace ImageDiff
 
         public bool Contains(Point candidate)
         {
-            return Math.Pow((candidate.X - _center.X),2) + Math.Pow((candidate.Y - _center.Y),2) < Math.Pow(_radius,2);
+            return _center.DistanceTo(candidate) < Math.Pow(_radius,2);
         }
     }
 }

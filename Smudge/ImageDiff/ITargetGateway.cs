@@ -21,19 +21,44 @@ namespace ImageDiff
         public TargetGatewayStub()
         {
             _random = new Random();
-            _image = new Bitmap("DirtyTarget.PNG");
+            _image = new Bitmap("CleanTarget.PNG");
         }
 
         public Bitmap GetImage()
         {
-            var angle = _random.Next(360);
+            var image = _image.Map(x => x.GetBrightness() < .5 ? Color.Black : Color.White);
 
-            return _image;
+            _image = new Bitmap("DirtyTarget.PNG");
+
+            return image;
         }
 
         private static Bitmap RotateImage(Bitmap image, float angle)
         {
             return RotateImage(image, angle, Color.Transparent);
+        }
+
+        private Bitmap Img2BW(Bitmap imgSrc, double threshold)
+        {
+            int width = imgSrc.Width;
+            int height = imgSrc.Height;
+            Color pixel;
+            Bitmap imgOut = new Bitmap(imgSrc);
+
+            for (int row = 0; row < height - 1; row++)
+            {
+                for (int col = 0; col < width - 1; col++)
+                {
+                    pixel = imgSrc.GetPixel(col, row);
+
+                    if (pixel.GetBrightness() < threshold)
+                        imgOut.SetPixel(col, row, Color.Black);
+                    else
+                        imgOut.SetPixel(col, row, Color.White);
+                }
+            }
+
+            return imgOut;
         }
 
         private static Bitmap RotateImage(Bitmap image, float angle, Color bkColor)

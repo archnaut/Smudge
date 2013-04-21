@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="ExtensionMehtods.cs" />
     <Compile Include="ImageTool.cs" />
     <Compile Include="ITargetGateway.cs" />
     <Compile Include="Program.cs" />

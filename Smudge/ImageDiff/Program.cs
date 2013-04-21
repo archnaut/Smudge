@@ -10,13 +10,16 @@ namespace ImageDiff
 	{
 	    public static void Main()
 	    {
+            
             ITargetGateway targetGateway = new TargetGatewayStub();
             IProximityHelper proximityHelper = new ProximityHelper();
             Point targetCenter = new Point(409, 377);
 
-            Bitmap previousImage = new Bitmap("CleanTarget.PNG");
+            Bitmap previousImage = targetGateway.GetImage();
 	    	Bitmap currentImage = targetGateway.GetImage();
-
+            
+            previousImage.GetPixel(
+            
             var shot = proximityHelper.GetNearest(targetCenter, previousImage, currentImage);
 
             var rings = new List<Circle>{

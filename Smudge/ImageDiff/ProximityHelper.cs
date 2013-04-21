@@ -14,10 +14,10 @@ namespace ImageDiff
     {
         public Point GetNearest(Point reference, Bitmap first, Bitmap second)
         {
-            var diff = ImageTool.GetDifferenceImage(first, second, Color.Pink);
+            var diff = ImageTool.GetDifferenceImage(first, second, Color.White);
 
-            return GetPointsOtherThan(diff, Color.Pink)
-                .Select(x => new {Point = x, Distance = Math.Abs(Math.Sqrt(Math.Pow(reference.X - x.X, 2) + Math.Pow(reference.Y - x.Y, 2)))})
+            return GetPointsOtherThan(diff, Color.White)
+                .Select(x => new {Point = x, Distance = reference.DistanceTo(x)})
                 .OrderBy(x => x.Distance)
                 .Select(x => x.Point)
                 .FirstOrDefault();
